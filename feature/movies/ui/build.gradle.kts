@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    kotlin("kapt")
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -34,10 +36,18 @@ android {
 
 dependencies {
     implementation(projects.feature.movies.domain)
-    implementation(projects.feature.movies.data)
     implementation(projects.core.common)
     implementation(projects.core.ui)
     implementation(projects.core.network)
+    implementation(libs.androidx.material3.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.androidx.paging.runtime.ktx)
+    implementation(libs.androidx.material)
+    implementation (libs.androidx.paging.compose)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.hilt.android)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
