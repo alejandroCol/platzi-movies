@@ -10,7 +10,7 @@ class ApiKeyInterceptor @Inject constructor() : Interceptor {
         val originalUrl = originalRequest.url
 
         val newUrl = originalUrl.newBuilder()
-            .addQueryParameter("api_key", BuildConfig.MK_API_KEY)
+            .addQueryParameter("api_key", BuildConfig.MP_API_KEY)
             .build()
 
         val newRequest = originalRequest.newBuilder()

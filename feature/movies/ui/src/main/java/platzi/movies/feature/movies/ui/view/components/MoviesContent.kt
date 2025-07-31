@@ -5,7 +5,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import platzi.movies.core.ui.states.EmptyState
@@ -16,8 +15,8 @@ import platzi.movies.feature.movies.domain.models.Movie
 @Composable
 fun MoviesContent(
     movies: LazyPagingItems<Movie>,
-    navController: NavController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onMovieClick: (Movie) -> Unit,
 ) {
     when (movies.loadState.refresh) {
         is LoadState.Loading -> LoadingState()
@@ -32,7 +31,7 @@ fun MoviesContent(
                 LazyColumn(modifier = modifier.padding(16.dp)) {
                     items(movies.itemCount) { index ->
                         movies[index]?.let { movie ->
-                            MovieItem(movie = movie, navController = navController)
+                            MovieItem(movie = movie, onClick = { onMovieClick(movie) })
                         }
                     }
                 }

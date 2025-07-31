@@ -11,11 +11,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
+import platzi.movies.core.navigation.MovieNavigator
 import platzi.movies.feature.movies.ui.presentation.MoviesViewModel
 import platzi.movies.feature.movies.ui.view.components.MoviesContent
 import platzi.movies.feature.movies.ui.view.components.MoviesTopBar
@@ -23,7 +23,7 @@ import platzi.movies.feature.movies.ui.view.components.MoviesTopBar
 
 @OptIn(FlowPreview::class)
 @Composable
-fun MoviesScreen(navController: NavController, viewModel: MoviesViewModel) {
+fun MoviesScreen(viewModel: MoviesViewModel, movieNavigator: MovieNavigator) {
     val movieQuery by viewModel.movieQuery.collectAsState()
     var searchQuery by remember { mutableStateOf("") }
     val movies = viewModel.movies.collectAsLazyPagingItems()
@@ -49,8 +49,10 @@ fun MoviesScreen(navController: NavController, viewModel: MoviesViewModel) {
     ) { innerPadding ->
         MoviesContent(
             movies = movies,
-            navController = navController,
-            modifier = Modifier.padding(innerPadding)
+            modifier = Modifier.padding(innerPadding),
+            onMovieClick = { movie ->
+                movieNavigator.openMovieDetail(movie.id)
+            }
         )
     }
 }

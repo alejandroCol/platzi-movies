@@ -50,7 +50,6 @@ dependencies {
     implementation (libs.androidx.paging.compose)
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.android)
-    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

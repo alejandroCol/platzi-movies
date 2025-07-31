@@ -8,6 +8,7 @@ plugins {
 }
 
 android {
+    namespace = "platzi.movies.core.network"
     compileSdk = 35
 
     defaultConfig {
@@ -20,7 +21,7 @@ android {
         if (localPropertiesFile.exists()) {
             localProperties.load(localPropertiesFile.inputStream())
         }
-        buildConfigField("String", "MK_API_KEY", "\"${localProperties["MK_API_KEY"] ?: ""}\"")
+        buildConfigField("String", "MP_API_KEY", "\"${localProperties["MP_API_KEY"] ?: ""}\"")
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -28,6 +29,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+    buildFeatures {
+        buildConfig = true
     }
 }
 

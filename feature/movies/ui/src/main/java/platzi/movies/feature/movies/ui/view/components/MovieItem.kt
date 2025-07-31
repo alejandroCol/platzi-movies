@@ -15,19 +15,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import platzi.movies.core.common.formatRating
+import platzi.movies.core.common.formatReleaseDate
 import platzi.movies.feature.movies.domain.models.Movie
 
 @Composable
-fun MovieItem(movie: Movie, navController: NavController, modifier: Modifier = Modifier) {
+fun MovieItem(movie: Movie, onClick: () -> Unit, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .padding(8.dp)
-            .clickable {
-                navController.navigate(createRoute(movie.id))
-            },
+            .clickable { onClick() },
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
