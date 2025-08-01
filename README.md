@@ -16,6 +16,13 @@ The MVVM pattern is implemented to maintain a decoupled and scalable architectur
 
 ## Key Features
 
+- **Light/Dark Mode support**.
+- **Light/Dark Mode support**.
+- **Light/Dark Mode support**.
+- **Light/Dark Mode support**.
+- **Light/Dark Mode support**.
+- **Light/Dark Mode support**.
+
 - **Modularization**: The application is divided into modules to improve maintainability and scalability.
 - **Pagination**: Uses Paging 3 library for efficient data loading.
 - **Real-time search**: Implements local movie filtering with instant response.
@@ -40,6 +47,10 @@ The application is configured with GitHub Actions for:
 2. Add TheMovieDB API Key in `local.properties`:
 MK_API_KEY
 3. Run the application from Android Studio.
+Make sure you have:
+JDK 17
+Kotlin 1.9+
+Android Gradle Plugin 8.x
 
 ## Technologies Used
 
@@ -50,6 +61,13 @@ MK_API_KEY
 - **Room Database** (local storage)
 - **Paging 3** (data pagination)
 - **Firebase App Distribution** (app distribution)
+
+- Additional Notes
+Feature navigation is fully decoupled through contracts (MovieNavigator, etc.), enabling independent development per feature.
+The MovieVideoModel abstracts video playback state cleanly from UI concerns.
+Utility extensions (e.g., Double.formatRating()) live in core:utils for centralized reuse.
+All navigation is handled in the app module through a centralized NavHost and implementation of navigators.
+CI/CD deploys on push to main or release/* branches using secure secrets and Firebase App Distribution.
 
 Challenge: Video Playback
 One of the biggest challenges in the project was handling video playback. The API responses provided only a YouTube video key, while the documentation required integration using Media3.
