@@ -44,6 +44,9 @@ The application is configured with GitHub Actions for:
 
 ## Installation and Execution
 
+<img width="924" height="347" alt="image" src="https://github.com/user-attachments/assets/92f64ab8-4676-46a5-859a-d27676f11800" />
+
+
 1. Clone the repository.
 2. Add TheMovieDB API Key in `local.properties`:
 MK_API_KEY
