@@ -13,17 +13,16 @@ The application follows Clean Architecture, separating responsibilities into dif
 - **Data**: Handles data retrieval from the API and local storage.
 
 The MVVM pattern is implemented to maintain a decoupled and scalable architecture.
-
+ 
 ## Key Features
 
-- **Light/Dark Mode support**.
-- **Light/Dark Mode support**.
-- **Light/Dark Mode support**.
-- **Light/Dark Mode support**.
-- **Light/Dark Mode support**.
-- **Light/Dark Mode support**.
-
-- **Modularization**: The application is divided into modules to improve maintainability and scalability.
+- **CI/CD with Firebase App Distribution via GitHub Actions**.
+- **Search for movies (local + remote)**.
+- **Display list of popular movies**.
+- **Movie detail screen**. with:
+Full movie info
+Embedded trailer
+- **Modularization**: The application is divided into modules to improve maintainability and scalability, Decoupled navigation between modules.
 - **Pagination**: Uses Paging 3 library for efficient data loading.
 - **Real-time search**: Implements local movie filtering with instant response.
 - **Light/Dark Mode support**.
