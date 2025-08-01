@@ -20,6 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import platzi.movies.core.common.formatRating
 import platzi.movies.core.common.formatReleaseDate
 import platzi.movies.core.media.MoviePlayerView
 import platzi.movies.core.media.model.VideoModel
@@ -48,7 +49,7 @@ fun MovieDetailsContent(movie: MovieDetail, video: VideoModel) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             AsyncImage(
-                model = movie.posterUrl,
+                model = movie.backdropUrl,
                 contentDescription = "Movie Poster",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -68,7 +69,7 @@ fun MovieDetailsContent(movie: MovieDetail, video: VideoModel) {
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "Release Date: ${movie.releaseDate?.formatReleaseDate()}",
+                text = "⭐ ${movie.rating?.formatRating()} • Release Date: ${movie.releaseDate?.formatReleaseDate()}",
                 style = MaterialTheme.typography.bodyMedium
             )
             Spacer(modifier = Modifier.height(8.dp))
