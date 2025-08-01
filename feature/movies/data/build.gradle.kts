@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    kotlin("kapt")
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -36,7 +38,18 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(projects.core.network)
+    implementation(projects.feature.movies.domain)
+    implementation (libs.androidx.room.runtime)
+    kapt (libs.androidx.room.compiler)
+    implementation (libs.androidx.room.ktx)
+    testImplementation (libs.androidx.room.testing)
+    implementation(libs.androidx.paging.runtime.ktx)
+    implementation (libs.androidx.paging.compose)
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

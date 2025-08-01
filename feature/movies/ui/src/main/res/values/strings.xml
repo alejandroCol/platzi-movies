@@ -1,0 +1,13 @@
+<resources>
+    <string-array name="language_codes">
+        <item>en-US</item>
+        <item>es-ES</item>
+    </string-array>
+
+    <string-array name="language_names">
+        <item>Ingles</item>
+        <item>Español</item>
+    </string-array>
+    <string name="change_language">Cambiar idioma</string>
+    <string name="search_message">Busca tu peli…</string>
+</resources>

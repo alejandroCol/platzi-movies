@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "578438640630",
+    "project_id": "platzimovies-f8575",
+    "storage_bucket": "platzimovies-f8575.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578438640630:android:5261f51622c56be2714dd7",
+        "android_client_info": {
+          "package_name": "platzi.movies"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh_k6yxFUPr1Oxf_ojeKQoGSGdjwtbqhw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

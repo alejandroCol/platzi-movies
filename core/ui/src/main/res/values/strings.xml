@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_message">¡Oh no! Parece que una paloma se robó la película. Inténtalo de nuevo más tarde.</string>
+    <string name="empty_message">Nada por aquí… ¿Seguro que existe esa película? 🤔</string>
+</resources>
