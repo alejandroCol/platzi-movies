@@ -1,10 +1,10 @@
 # Platzi Movies
 
-<img width="156" height="328" alt="image" src="https://github.com/user-attachments/assets/8ec698fd-f127-4bdb-98b1-8e5b33678c7c" />
-
 ## Description
 
 Platzi Movies is an Android application developed in Kotlin that allows users to explore the most popular movies using TheMovieDB API. It implements Clean Architecture, modularization, and development best practices to ensure maintainability and scalability.
+
+<img width="156" height="328" alt="image" src="https://github.com/user-attachments/assets/8ec698fd-f127-4bdb-98b1-8e5b33678c7c" />
 
 ## Architecture
 
