@@ -17,6 +17,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
@@ -40,3 +41,11 @@ include(":feature:movies:domain")
 project(":feature:movies:domain").projectDir = file("feature/movies/domain")
 include(":feature:movies:ui")
 project(":feature:movies:ui").projectDir = file("feature/movies/ui")
+include(":core:navigation")
+project(":core:navigation").projectDir = file("core/navigation")
+include(":feature:detail:data")
+project(":feature:detail:data").projectDir = file("feature/detail/data")
+include(":feature:detail:domain")
+project(":feature:detail:domain").projectDir = file("feature/detail/domain")
+include(":feature:detail:ui")
+project(":feature:detail:ui").projectDir = file("feature/detail/ui")

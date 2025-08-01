@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     kotlin("kapt")
     alias(libs.plugins.hilt)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.firebase.distribution)
 }
 
 android {
@@ -42,7 +44,14 @@ android {
 }
 
 dependencies {
-
+    implementation(projects.core.navigation)
+    implementation(projects.feature.movies.ui)
+    implementation(projects.feature.movies.data)
+    implementation(projects.feature.detail.ui)
+    implementation(projects.feature.detail.data)
+    implementation(projects.core.di)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -51,8 +60,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(projects.core.di)
     implementation(libs.hilt.android)
+    implementation(platform(libs.firebase.bom))
     kapt(libs.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

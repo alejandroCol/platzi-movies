@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    kotlin("kapt")
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -30,17 +33,30 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
     implementation(projects.feature.movies.domain)
-    implementation(projects.feature.movies.data)
+    implementation(projects.core.navigation)
     implementation(projects.core.common)
     implementation(projects.core.ui)
+    implementation(projects.core.di)
     implementation(projects.core.network)
+    implementation(projects.core.common)
+    implementation(libs.androidx.material3.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.androidx.paging.runtime.ktx)
+    implementation (libs.androidx.paging.compose)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.hilt.android)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
