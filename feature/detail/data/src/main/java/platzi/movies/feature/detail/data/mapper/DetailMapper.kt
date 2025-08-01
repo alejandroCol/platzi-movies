@@ -1,7 +1,9 @@
 package platzi.movies.feature.detail.data.mapper
 
 import platzi.movies.feature.detail.data.dto.MovieDetailDto
+import platzi.movies.feature.detail.data.dto.ResponseTrailerDto
 import platzi.movies.feature.detail.domain.models.MovieDetail
+import platzi.movies.feature.detail.domain.models.MovieTrailer
 
 object DetailMapper {
     fun MovieDetailDto.toDomain() = MovieDetail(
@@ -17,4 +19,13 @@ object DetailMapper {
         revenue = revenue,
         tagline = tagline
     )
+
+    fun ResponseTrailerDto.toDomain(): MovieTrailer {
+        val trailer = results.firstOrNull()
+        return MovieTrailer(
+            videoUrl = "https://www.youtube.com/watch?v=${trailer?.key}",
+            isOfficial = trailer?.isOfficial ?: false,
+            videoId = trailer?.key?: ""
+        )
+    }
 }

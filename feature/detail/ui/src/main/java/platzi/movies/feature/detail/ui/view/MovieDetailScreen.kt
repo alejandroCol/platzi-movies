@@ -19,11 +19,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import platzi.movies.core.ui.states.ErrorState
 import platzi.movies.feature.detail.ui.presentation.MovieDetailViewModel
+import platzi.movies.feature.detail.ui.presentation.mapper.toVideoModel
 import platzi.movies.feature.detail.ui.presentation.state.MovieDetailState
 import platzi.movies.feature.detail.ui.view.components.MovieDetailsContent
 
@@ -59,8 +59,7 @@ fun MovieDetailScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp),
+                .padding(paddingValues),
             contentAlignment = Alignment.Center
         ) {
             when (movieDetailState) {
@@ -68,7 +67,9 @@ fun MovieDetailScreen(
 
                 is MovieDetailState.Success -> {
                     val movie = (movieDetailState as MovieDetailState.Success).movie
-                    MovieDetailsContent(movie = movie)
+                    val trailer = (movieDetailState as MovieDetailState.Success).trailer
+
+                    MovieDetailsContent(movie = movie, video = trailer.toVideoModel())
                 }
 
                 is MovieDetailState.Error -> ErrorState()

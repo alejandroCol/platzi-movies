@@ -3,7 +3,7 @@ package platzi.movies.feature.detail.domain.models
 data class MovieDetail(
     val id: Int?,
     val title: String,
-    val posterUrl: String?,
+    val posterUrl: String,
     val backdropUrl: String?,
     val overview: String,
     val releaseDate: String?,

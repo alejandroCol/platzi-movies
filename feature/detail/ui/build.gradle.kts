@@ -43,6 +43,7 @@ dependencies {
     implementation(projects.feature.detail.domain)
     implementation(projects.core.navigation)
     implementation(projects.core.common)
+    implementation(projects.core.media)
     implementation(projects.core.ui)
     implementation(projects.core.di)
     implementation(projects.core.network)
@@ -58,4 +59,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.turbine)
 }

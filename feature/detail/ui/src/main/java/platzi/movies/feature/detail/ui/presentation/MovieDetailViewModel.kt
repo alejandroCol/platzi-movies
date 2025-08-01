@@ -7,12 +7,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import platzi.movies.feature.detail.domain.usecases.GetMovieDetailUseCase
+import platzi.movies.feature.detail.domain.usecases.GetMovieTrailerUseCase
 import platzi.movies.feature.detail.ui.presentation.state.MovieDetailState
 import javax.inject.Inject
 
 @HiltViewModel
 class MovieDetailViewModel @Inject constructor(
-    private val getMovieDetailUseCase: GetMovieDetailUseCase
+    private val getMovieDetailUseCase: GetMovieDetailUseCase,
+    private val getMovieTrailerUseCase: GetMovieTrailerUseCase
 ) : ViewModel() {
 
     private val _movieDetail = MutableStateFlow<MovieDetailState>(MovieDetailState.Loading)
@@ -20,9 +22,33 @@ class MovieDetailViewModel @Inject constructor(
 
     fun loadMovieDetail(movieId: Int) {
         viewModelScope.launch {
-            getMovieDetailUseCase(movieId)
-                .onSuccess { movie -> _movieDetail.value = MovieDetailState.Success(movie) }
-                .onFailure { error -> _movieDetail.value = MovieDetailState.Error(error.message ?: "Unknown error") }
+            _movieDetail.value = MovieDetailState.Loading
+
+            val detailResult = getMovieDetailUseCase(movieId)
+            val trailerResult = getMovieTrailerUseCase(movieId)
+
+            when {
+                detailResult.isSuccess && trailerResult.isSuccess -> {
+                    val movie = detailResult.getOrNull()
+                    val trailer = trailerResult.getOrNull()
+                    if (movie != null && trailer != null) {
+                        _movieDetail.value = MovieDetailState.Success(movie, trailer)
+                    } else {
+                        _movieDetail.value = MovieDetailState.Error("Error loading movie")
+                    }
+                }
+
+                detailResult.isFailure -> {
+                    val message = detailResult.exceptionOrNull()?.message ?: "Error loading movie"
+                    _movieDetail.value = MovieDetailState.Error(message)
+                }
+
+                trailerResult.isFailure -> {
+                    val message =
+                        trailerResult.exceptionOrNull()?.message ?: "Error loading trailer"
+                    _movieDetail.value = MovieDetailState.Error(message)
+                }
+            }
         }
     }
 }

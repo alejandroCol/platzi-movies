@@ -29,7 +29,7 @@ fun MovieItem(movie: Movie, onClick: () -> Unit, modifier: Modifier = Modifier) 
             .clickable { onClick() },
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
+        Column() {
             AsyncImage(
                 model = movie.posterUrl,
                 contentDescription = movie.title,
@@ -38,23 +38,25 @@ fun MovieItem(movie: Movie, onClick: () -> Unit, modifier: Modifier = Modifier) 
                     .fillMaxWidth()
                     .height(200.dp)
             )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = movie.title,
-                style = MaterialTheme.typography.titleLarge,
-                maxLines = 1
-            )
-            Spacer(modifier = Modifier.height(4.dp))
-            Text(
-                text = "⭐ ${movie.rating.formatRating()} • ${movie.releaseDate.formatReleaseDate()}",
-                style = MaterialTheme.typography.bodyMedium
-            )
-            Spacer(modifier = Modifier.height(4.dp))
-            Text(
-                text = movie.overview,
-                style = MaterialTheme.typography.bodySmall,
-                maxLines = 3
-            )
+            Column(modifier = Modifier.padding(16.dp)) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = movie.title,
+                    style = MaterialTheme.typography.titleLarge,
+                    maxLines = 1
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = "⭐ ${movie.rating.formatRating()} • ${movie.releaseDate.formatReleaseDate()}",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = movie.overview,
+                    style = MaterialTheme.typography.bodySmall,
+                    maxLines = 3
+                )
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ import androidx.compose.runtime.remember
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import platzi.movies.core.navigation.Screen
+import platzi.movies.feature.detail.ui.navigation.movieDetailNavGraph
 import platzi.movies.feature.movies.ui.navigation.moviesNavGraph
 
 @Composable
@@ -19,5 +20,6 @@ fun AppNavigation() {
         startDestination = Screen.MoviesList.route
     ) {
         moviesNavGraph(movieNavigator = movieNavigator)
+        movieDetailNavGraph(navController)
     }
 }
