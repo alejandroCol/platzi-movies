@@ -41,10 +41,12 @@ The application is configured with GitHub Actions for:
 
 - **Unit test execution**.
 - **Automatic build and distribution** to Firebase App Distribution.
+<img width="1263" height="506" alt="image" src="https://github.com/user-attachments/assets/97597889-6a0e-4d5d-b2b8-86224830d185" />
 
 ## Installation and Execution
 
 <img width="924" height="347" alt="image" src="https://github.com/user-attachments/assets/92f64ab8-4676-46a5-859a-d27676f11800" />
+<img width="1328" height="626" alt="image" src="https://github.com/user-attachments/assets/a124a647-59c4-45b6-a4fa-9b8e978f1906" />
 
 
 1. Clone the repository.
