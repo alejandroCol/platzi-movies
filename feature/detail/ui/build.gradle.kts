@@ -40,6 +40,7 @@ android {
 
 dependencies {
 
+    // Modules
     implementation(projects.feature.detail.domain)
     implementation(projects.core.navigation)
     implementation(projects.core.common)
@@ -48,14 +49,21 @@ dependencies {
     implementation(projects.core.di)
     implementation(projects.core.network)
     implementation(projects.core.common)
+
+    // UI
     implementation(libs.androidx.material3.android)
-    kapt(libs.hilt.compiler)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.coil.compose)
     implementation(libs.androidx.hilt.navigation.compose)
+
+    // Hilt
+    kapt(libs.hilt.compiler)
     implementation(libs.hilt.android)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+
+    // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

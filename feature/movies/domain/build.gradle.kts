@@ -35,11 +35,16 @@ android {
 }
 
 dependencies {
+    // Hilt
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.android)
     implementation(projects.core.di)
+
+    // UI
     implementation(libs.androidx.paging.runtime.ktx)
     implementation (libs.androidx.paging.compose)
+
+    // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
