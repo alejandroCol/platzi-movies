@@ -37,14 +37,19 @@ android {
 }
 
 dependencies {
+
+    // Video
     implementation(libs.androidx.media3.exoplayer)
-    implementation("com.github.HaarigerHarald:android-youtubeExtractor:2.1.0")
-    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
+    implementation(libs.core)
+
+    // Image
     implementation(libs.coil.compose)
     implementation(libs.androidx.media3.ui)
     implementation(libs.androidx.material3.android)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+
+    // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

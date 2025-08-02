@@ -37,13 +37,23 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+
+    // Network
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
+
+    // Modules
     implementation(projects.core.network)
     implementation(projects.feature.detail.domain)
+
+    // Room
     implementation (libs.androidx.room.runtime)
+
+    // Hilt
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.android)
+
+    // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

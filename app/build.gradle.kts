@@ -44,25 +44,35 @@ android {
 }
 
 dependencies {
+
+    // Modules
     implementation(projects.core.navigation)
     implementation(projects.feature.movies.ui)
     implementation(projects.feature.movies.data)
     implementation(projects.feature.detail.ui)
     implementation(projects.feature.detail.data)
     implementation(projects.core.di)
+
+    // Compose
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
+
+    // UI
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    // Hilt
     implementation(libs.hilt.android)
     implementation(platform(libs.firebase.bom))
     kapt(libs.hilt.compiler)
+
+    // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

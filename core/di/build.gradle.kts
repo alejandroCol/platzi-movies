@@ -38,6 +38,8 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+
+    // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
@@ -48,10 +50,9 @@ dependencies {
     // OkHttp
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging)
-
-    // Otros core utils si necesitas
-    implementation(projects.core.common)
     implementation(projects.core.network)
+
+    // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
