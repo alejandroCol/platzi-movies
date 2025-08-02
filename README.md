@@ -49,6 +49,8 @@ The application is configured with GitHub Actions for:
 <img width="1328" height="626" alt="image" src="https://github.com/user-attachments/assets/a124a647-59c4-45b6-a4fa-9b8e978f1906" />
 
 
+Link download firebase https://appdistribution.firebase.google.com/testerapps/1:578438640630:android:5261f51622c56be2714dd7/releases/2ohe0rr1li9a8?utm_source=firebase-console
+
 1. Clone the repository.
 2. Add TheMovieDB API Key in `local.properties`:
 MK_API_KEY
